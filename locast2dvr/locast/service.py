@@ -3,7 +3,6 @@ import re
 import threading
 from datetime import datetime
 from typing import Optional, Tuple
-import uuid
 
 import m3u8
 import requests
@@ -85,7 +84,7 @@ class LocastService(LoggingHandler):
     def start(self):
         self._fcc_facilities = Facilities.instance()
         self._load_location_data()
-        self.uid = str(uuid.uuid5(uuid.UUID(self.config.uid), str(self.dma)))
+
         # Start cache updater timer if necessary, otherwise, just preload
         # stations once
         if self.config.cache_stations:
@@ -140,9 +139,11 @@ class LocastService(LoggingHandler):
         user_info = r.json()
 
         if user_info['didDonate'] and datetime.now() > datetime.fromtimestamp(user_info['donationExpire'] / 1000):
-            raise UserInvalidError("Donation expired")
+            print("Donation expired. Continuing as free...")
+            return True
         elif not user_info['didDonate']:
-            raise UserInvalidError("User didn't donate")
+            print("User didn't donate. Continuing as free...")
+            return True
 
     def _is_token_valid(self) -> bool:
         """Check if the last login was longer than ``TOKEN_LIFETIME`` ago
