@@ -21,13 +21,13 @@ install_requires = [
 ]
 
 setup(
-    name='locast2dvr',
+    name='locast2dvr-sparkyfree',
     description='locast to Plex Media Server/Emby integration',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/wouterdebie/locast2dvr",
-    author="Wouter de Bie",
-    author_email="pypi@evenflow.nl",
+    author="Wouter de Bie and Samuel Lord",
+    author_email="sam@sllord.info",
     license="MIT",
     py_modules=['locast2dvr'],
     packages=setuptools.find_packages(),
