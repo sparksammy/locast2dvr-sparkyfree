@@ -1,4 +1,4 @@
-# locast2dvr
+# locast2dvr=sparkyfree
 
 [![Build Status](https://travis-ci.com/wouterdebie/locast2dvr.svg?branch=main)](https://travis-ci.com/wouterdebie/locast2dvr)
 
@@ -21,7 +21,7 @@ Even though this project started as a locast to PMS interface, it's more focused
 
 ## Prerequisites
 - Python >= 3.6
-- An active locast.org account with an active donation. Locast doesn't allow you to stream without a donation.
+- An active locast.org account with an active donation is optional, this version of locast2dvr allows you to stream without a donation, but it is limited to 5 minutes (without looping the stream, at least).
 - [ffmpeg](https://ffmpeg.org/) installed and available on your `$PATH`.
 
 
